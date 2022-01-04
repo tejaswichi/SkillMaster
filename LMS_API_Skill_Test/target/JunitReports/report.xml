@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="2" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="20" time="7.307">
+    <testcase classname="Delete Skill Feature" name="User wants to delete with existing skill id" time="3.336">
+        <system-out><![CDATA[Given User is on DELETE method with endpoint................................passed
+When User sends request with existing skill_id..............................passed
+Then User should be able to delete the existing skill_id....................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Delete Skill Feature" name="User wants to delete  with non-existing skill id" time="0.156">
+        <system-out><![CDATA[Given User is on DELETE method with endpoint................................passed
+When User sends request with non-existing skill_id..........................passed
+Then User should recieve an error status code...............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Delete Skill Feature" name="User leaves the Skill id blank." time="0.158">
+        <system-out><![CDATA[Given User is on DELETE method with endpoint................................passed
+When User sends request with blank skill_id.................................passed
+Then User should recieve an error status code...............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Delete Skill Feature" name="User enters the Skill_id as alphanumeric." time="0.147">
+        <system-out><![CDATA[Given User is on DELETE method with endpoint................................passed
+When User sends the request with alphanumeric skill Id......................passed
+Then User should recieve an error status code...............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Delete Skill Feature" name="User enters the skill id as decimal" time="0.121">
+        <system-out><![CDATA[Given User is on DELETE method with endpoint................................passed
+When User enter the Skill_id as decimal.....................................passed
+Then User should recieve an error status code...............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Get Skill Feature" name="To get all the Skill details" time="0.186">
+        <system-out><![CDATA[Given User is on GET method with endpoint Skills............................passed
+When User sends request.....................................................passed
+Then User receives list of all Skills.......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Get Skill Feature" name="To get specific Skill id details" time="0.125">
+        <system-out><![CDATA[Given User is on GET method with endpoint Skills with Skill_id..............passed
+When User sends the request with specific Skill_Id..........................passed
+Then User receives the particular Skill_Id details..........................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Get Skill Feature" name="To get specific Skill details with invalid id" time="0.14">
+        <system-out><![CDATA[Given User is on GET method with endpoint Skills with Skill_id..............passed
+When User sends the request with invalid Skill Id...........................passed
+Then User doesnot get the particular Skill_Id...............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Get Skill Feature" name="To get specific Skill id details with skill id as alphanumeric" time="0.148">
+        <system-out><![CDATA[Given User is on GET method with endpoint Skills with Skill_id..............passed
+When User sends the request with alphanumeric Skill Id......................passed
+Then User doesnot get the particular Skill_Id...............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Get Skill Feature" name="To get specific Skill id details with skillid as null" time="0.152">
+        <system-out><![CDATA[Given User is on GET method with endpoint Skills and Skill id null..........passed
+When User sends the request with skill id as null...........................passed
+Then User doesnot get the particular Skill_Id...............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Post Skill Feature" name="To create new Skill Record with Skill Name" time="0.787">
+        <system-out><![CDATA[Given User is on POST method with endpoint url Skills.......................passed
+When User sends request with inputs  skill name.............................passed
+Then User is able to create a new Skill id..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Post Skill Feature" name="To create User Record with blank Skill Name" time="0.188">
+        <system-out><![CDATA[Given User is on POST method with endpoint url Skills.......................passed
+When User sends request with blank inputs...................................passed
+Then User cannot create a new Skill id......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Post Skill Feature" name="To create user record with boolean value" time="0.163">
+        <system-out><![CDATA[Given User is on POST method with endpoint url Skills.......................passed
+When User sends request with boolean as skill name..........................passed
+Then User is able to create a new Skill id..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Post Skill Feature" name="To create user record with integer" time="0.186">
+        <failure message="expected [200] but found [400]" type="java.lang.AssertionError"><![CDATA[Given User is on POST method with endpoint url Skills.......................passed
+When User sends request with integer as  skill name.........................passed
+Then User cannot create a new Skill id......................................failed
+
+StackTrace:
+java.lang.AssertionError: expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at com.lms.api.skill.stepdef.PostSkillStepDef.user_cannot_create_a_new_skill_id(PostSkillStepDef.java:110)
+	at ✽.User cannot create a new Skill id(file:///C:/Users/Shrihan/Desktop/NumpyNinja/API%20Development%20with%20Java%20Springboot/LMS_API_Skill_Test/src/test/resources/Feature/PostSkill.feature:21)
+]]></failure>
+    </testcase>
+    <testcase classname="Post Skill Feature" name="To create record with alphanumeric" time="0.183">
+        <system-out><![CDATA[Given User is on POST method with endpoint url Skills.......................passed
+When User sends request with Alphanumeric as skill name.....................passed
+Then User is able to create a new Skill id..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Put Skill Feature" name="To update skill name in existing Skill Id" time="0.195">
+        <system-out><![CDATA[Given User is on PUT method with endpoint Skills............................passed
+When To update skill name in existing Skill Id..............................passed
+Then User should be able to update the Skill name...........................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Put Skill Feature" name="To update skill name in non-existing Skill Id" time="0.157">
+        <system-out><![CDATA[Given User is on PUT method with endpoint Skills............................passed
+When User sends request with valid skill name but non existing skill id.....passed
+Then User should not be able to update the Skill name.......................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Put Skill Feature" name="To update more than one skill name in skill Id" time="0.161">
+        <system-out><![CDATA[Given User is on PUT method with endpoint Skills............................passed
+When User sends request with inputs like Java and Python....................passed
+Then User should not be able to update the Skill name.......................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Put Skill Feature" name="To update skill name with invalid datatypes" time="0.149">
+        <failure message="expected [200] but found [400]" type="java.lang.AssertionError"><![CDATA[Given User is on PUT method with endpoint Skills............................passed
+When To update skill name with invalid datatypes............................passed
+Then User should not be able to update the Skill name.......................failed
+
+StackTrace:
+java.lang.AssertionError: expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at com.lms.api.skill.stepdef.PutSkillStepDef.user_should_not_be_able_to_update_the_skill_name(PutSkillStepDef.java:121)
+	at ✽.User should not be able to update the Skill name(file:///C:/Users/Shrihan/Desktop/NumpyNinja/API%20Development%20with%20Java%20Springboot/LMS_API_Skill_Test/src/test/resources/Feature/PutSkill.feature:22)
+]]></failure>
+    </testcase>
+    <testcase classname="Put Skill Feature" name="To update Skill name with skill id blank" time="0.147">
+        <system-out><![CDATA[Given User is on PUT method with endpoint Skills............................passed
+When User sends request with blank skill Id.................................passed
+Then User should not be able to update the Skill name.......................passed
+]]></system-out>
+    </testcase>
+</testsuite>
