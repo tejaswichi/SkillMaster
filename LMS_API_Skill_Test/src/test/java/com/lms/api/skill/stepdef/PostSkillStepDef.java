@@ -1,7 +1,9 @@
 package com.lms.api.skill.stepdef;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -68,7 +70,7 @@ public class PostSkillStepDef extends TestBase{
 	}
 
 	@Then("User is able to create a new Skill id")
-	public void user_is_able_to_create_a_new_skill_id() throws IOException {
+	public void user_is_able_to_create_a_new_skill_id() throws IOException, SQLException {
 		String expStatusCode = dataTable.getDataFromExcel(scenario.getName(), "StatusCode");
 		String responseMessage = dataTable.getDataFromExcel(scenario.getName(), "Message");
 		String responseBody = response.asPrettyString();
@@ -78,6 +80,10 @@ public class PostSkillStepDef extends TestBase{
 		System.out.println("Validated the Response Schema");
 		assertEquals(Integer.parseInt(expStatusCode),response.statusCode());
 		System.out.println("Response Message =>  " + responseMessage);
+		
+		JSONObject obj = new JSONObject(responseBody);
+		String skill_id= obj.get("skill_id").toString();
+		dbvalidation(responseBody, skill_id);
 	}
 
 	@When("User sends request with blank inputs")

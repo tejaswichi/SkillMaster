@@ -69,7 +69,6 @@ public class DelSkillStepDef extends TestBase{
 
 		// if skill object is exist for given skill id , go directly to delete
 		if (response.statusCode() == 200 && responseBody.contains(skill_id)) {		
-			// delete
 			requestSpecificationDelete();
 		}
 		else {  

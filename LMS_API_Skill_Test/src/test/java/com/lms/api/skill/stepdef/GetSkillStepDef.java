@@ -13,6 +13,8 @@ import io.restassured.specification.RequestSpecification;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import org.junit.Test;
 import org.testng.Assert;
 import static io.restassured.RestAssured.*;
@@ -85,12 +87,14 @@ public class GetSkillStepDef extends TestBase{
 	}
 
 	@Then("User receives the particular Skill_Id details")
-	public void user_receives_the_particular_skill_Id_details() throws IOException {
+	public void user_receives_the_particular_skill_Id_details() throws IOException, SQLException {
 		String expStatusCode = dataTable.getDataFromExcel(scenario.getName(), "StatusCode");
 		String responseBody = response.asPrettyString();
 		System.out.println("Actual Response Status code=>  " + response.statusCode() + "  Expected Response Status code=>  " + expStatusCode);
 		System.out.println("Response Body is =>  " + responseBody);
 		assertEquals(Integer.parseInt(expStatusCode),response.statusCode());
+		String skill_id=dataTable.getDataFromExcel(scenario.getName(),"Skill_id"); 
+		dbvalidation(responseBody,skill_id);
 		
 	}
 	@When("User sends the request with invalid Skill Id")

@@ -3,9 +3,11 @@ package com.lms.api.skill.stepdef;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import com.lms.api.skill.dbmanager.Dbmanager;
+
 	
 	
-	public class TestBase {
+	public class TestBase extends Dbmanager{
 		FileInputStream  fis;
 		public Properties LoadProperties() {
 			try {

@@ -1,10 +1,11 @@
+#@check
 Feature: Get Skill Feature 
 
 Scenario: To get all the Skill details
     Given User is on GET method with endpoint Skills
     When User sends request
 		Then User receives list of all Skills
-   
+ 
 Scenario: To get specific Skill id details 
     Given User is on GET method with endpoint Skills with Skill_id
     When User sends the request with specific Skill_Id

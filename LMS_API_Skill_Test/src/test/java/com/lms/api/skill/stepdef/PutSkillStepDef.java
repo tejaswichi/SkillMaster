@@ -1,9 +1,13 @@
 package com.lms.api.skill.stepdef;
 
+import org.json.JSONObject;
 import org.testng.Assert;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.cucumber.core.gherkin.messages.internal.gherkin.internal.com.eclipsesource.json.Json;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
@@ -18,6 +22,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class PutSkillStepDef extends TestBase{
 	
@@ -74,17 +79,23 @@ public class PutSkillStepDef extends TestBase{
 	}
 
 	@Then("User should be able to update the Skill name")
-	public void user_should_be_able_to_update_the_skill_name() throws IOException {
+	public void user_should_be_able_to_update_the_skill_name() throws IOException, SQLException {
 		String expStatusCode = dataTable.getDataFromExcel(scenario.getName(), "StatusCode");
 		String responseMessage = dataTable.getDataFromExcel(scenario.getName(), "Message");
 		System.out.println("Actual Response Status code=>  " + response.statusCode() + "  Expected Response Status code=>  " + expStatusCode);
+			
+		// FROM REST CALL - RESPONSE
 		String responseBody = response.asPrettyString();
 		assertThat(responseBody, matchesJsonSchemaInClasspath("responseskill-schema.json"));
 		System.out.println("Validated the Response Schema");
 		System.out.println("Response Body is =>  " + responseBody);
 		assertEquals(Integer.parseInt(expStatusCode),response.statusCode());
 		System.out.println("Response Message =>  " + responseMessage);
-			
+		String skill_id=dataTable.getDataFromExcel(scenario.getName(),"Skill_id");
+		dbvalidation(responseBody, skill_id);
+		
+		
+		
 	}
 
 	@When("User sends request with valid skill name but non existing skill id")

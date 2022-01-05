@@ -1,3 +1,4 @@
+#@check
 Feature: Delete Skill Feature 
 
 Scenario: User wants to delete with existing skill id

@@ -7,9 +7,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-			features = {"src/test/resources/Feature/"},
+			features = {"src/test/resources/Feature/PutSkill.feature"},
 			glue = {"com.lms.api.skill.stepdef"},
-			//tags="@check",
+			tags="@check",
 			monochrome = true,
 			plugin = {"pretty","html:target/HtmlReports/report.html",
 					"json:target/JSONReports/report.json",

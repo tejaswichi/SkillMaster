@@ -1,6 +1,6 @@
 
 Feature: Put Skill Feature
-
+#@check
   Scenario Outline: To update skill name in existing Skill Id
     Given User is on PUT method with endpoint Skills
     When  To update skill name in existing Skill Id
